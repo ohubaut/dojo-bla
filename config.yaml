@@ -1,0 +1,5 @@
+baseURL: "https://brainelalleud.coderdojobelgium.be/"
+languageCode: "fr"
+title: "CoderDojo Braine-l'Alleud"
+permalinks:
+  pages: /:filename

@@ -1,0 +1,157 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    font-size: 1.5rem;
+}
+
+h2 {
+    font-size: 1.25rem;
+}
+
+header img {
+    display: block;
+    margin: 0 auto;
+}
+
+footer {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    border-top: 1px solid #006ad5;
+    display: grid;
+}
+
+nav ul {
+    padding: 0;
+}
+
+nav li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #006ad5;
+}
+
+main {
+    color: hsl(0, 0%, 18%);
+    font-weight: 300;
+    line-height: 1.3rem;
+}
+
+main a {
+    font-weight: 400;
+}
+
+main a:hover {
+    text-decoration: underline;
+}
+
+main strong {
+    font-weight: 500;
+    color: hsl(0, 0%, 25%);
+}
+
+.expired {
+    text-decoration: line-through;
+}
+
+.sessions {
+    width: 100%;
+    margin: 1rem 2rem;
+}
+
+.sessions tr :nth-child(3) {
+    text-align: center;
+}
+
+.coach {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    justify-items: center;
+}
+
+.coach img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    box-shadow: 1px 2px 6px 2px #bfbfbf;
+}
+
+.coach figcaption {
+    text-align: center;
+}
+
+dt {
+    margin: .5rem 0 .2rem 0;
+}
+
+.yellow-belt {
+    background: rgb(250, 209, 26);
+}
+
+.red-belt {
+    background: #ea4737;
+}
+
+.green-belt {
+    background: #49B749;
+}
+
+.blue-belt {
+    background: #006ad5;
+    color: rgb(245, 239, 239);
+}
+
+.black-belt {
+    background: #000;
+    color: rgb(245, 239, 239);
+}
+
+@media (min-width: 768px) {
+    #container {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    nav li {
+        display: inline-block;
+        font-size: 1.2rem;
+        font-weight: 500;
+        cursor: pointer;
+        border-bottom: 3px solid #FFF;
+        transition-duration: 0.3s;
+    }
+
+    nav li a {
+        display: block;
+        padding: 0 1.5rem;
+        line-height: 3rem;
+        text-align: center;
+        font-variant: all-small-caps;
+        color: #000;
+    }
+
+    #accueil:hover, #accueil.current {
+        border-bottom-color: #FAA31A;
+    }
+
+    #session:hover, #session.current {
+        border-bottom-color: #49B749;
+    }
+
+    #coaches:hover, #coaches.current {
+        border-bottom-color: #0093D5;
+    }
+
+    #ceintures:hover, #ceintures.current {
+        border-bottom-color: #ea4737;
+    }
+
+    footer {
+        grid-template-columns: auto 3rem;
+    }
+}
