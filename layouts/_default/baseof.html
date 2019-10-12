@@ -18,6 +18,8 @@
         <header>
             <img src="/images/logo-cdj-be.png">
             <nav>
+                <input type="checkbox" id="hamburger">
+                <label for="hamburger" class="far fa-bars hidden"></label>
                 <ul>
                     <li id="accueil" {{ if .Page.IsHome }}class="current"{{ end }}><a href="/">Accueil</a></li>
                     <li id="session" {{ if eq .Params.menu "sessions" }}class="current"{{ end }}><a href="/sessions">Sessions</a></li>
