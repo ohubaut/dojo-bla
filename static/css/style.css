@@ -96,12 +96,16 @@ main strong {
     text-decoration: line-through;
 }
 
-.sessions {
+.sessions, .old_sessions {
     width: 100%;
     margin: 1rem 2rem;
 }
 
 .sessions tr :nth-child(3) {
+    text-align: center;
+}
+
+.old_sessions tr :nth-child(2) {
     text-align: center;
 }
 
