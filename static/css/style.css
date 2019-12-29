@@ -71,6 +71,11 @@ footer {
     display: grid;
 }
 
+.social-media {
+    padding-top: 5px;
+    font-size: 2rem;
+}
+
 a {
     text-decoration: none;
     color: #006ad5;
@@ -212,5 +217,10 @@ dt {
 
     footer {
         grid-template-columns: auto 3rem;
+    }
+
+    .social-media {
+        font-size: 1.5rem;
+        padding-top: 0;
     }
 }
