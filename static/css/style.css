@@ -45,14 +45,14 @@ nav li {
     display: block;
     list-style: none;
     padding: .7rem 0;
-    font-size: 2rem;
+    font-size: 1.6rem;
     text-align: center;
     border-bottom: 1px solid hsl(0, 0%, 18%);
 }
 
 nav input:checked ~ ul {
     display: block;
-    width: calc(100% - 2rem);
+    width: calc(100% - 4rem);
     right: 0;
     background: rgba(247, 247, 247, 0.9);
     position: absolute;
