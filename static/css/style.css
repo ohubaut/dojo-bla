@@ -14,7 +14,8 @@ h2 {
 
 header {
     display: grid;
-    grid-template-columns: calc(100% - 2rem) 2rem;
+    grid-template-columns: auto 3rem;
+    grid-column-gap: .5rem;
 }
 
 header img {
@@ -28,8 +29,10 @@ header img {
 
 nav label {
     font-style: normal;
-    font-size: 1.2rem;
-    padding: 10px;
+    font-size: 2rem;
+    padding: .5rem;
+    width: 100%;
+    text-align: center;
 }
 
 nav ul {
