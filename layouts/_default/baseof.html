@@ -22,7 +22,7 @@
             <input type="checkbox" id="hamburger">
             <label for="hamburger" class="far fa-bars hidden"></label>
             <ul>
-                <li id="accueil" {{ if .Page.IsHome }}class="current" {{ end }}><a href="/">Accueil</a></li>
+                <li id="accueil" {{ if or .Page.IsHome .Params.menu "accueil" }}class="current" {{ end }}><a href="/">Accueil</a></li>
                 <li id="session" {{ if eq .Params.menu "sessions" }}class="current"{{ end }}><a href="/sessions">Sessions</a></li>
                 <li id="coaches" {{ if eq .Params.menu "coaches" }}class="current"{{ end }}><a href="/coaches">Coaches</a></li>
                 <li id="ceintures" {{ if eq .Params.menu "ceintures" }}class="current"{{ end }}><a href="/ceintures">Ceintures</a></li>
@@ -32,12 +32,17 @@
     <main>
         {{ block "main" . }}
         {{ end }}
+        <div id="gauge">
+            <p><a href="/cagnotte">Aidez-nous à atteindre notre objectif!</a><br>
+                <meter value="45" max="100">Cagnotte actuelle: 45€</meter></p>
+            <img src="/images/robot/mbot_mini.png" srcset="/images/robot/mbot_mini_2x.png 2x">
+        </div>
     </main>
     <footer>
         <a href="mailto:brainelalleud@coderdojobelgium.be"><span class="far fa-envelope-open"></span>
             brainelalleud@coderdojobelgium.be</a>
         <div class="social-media">
-            <a href="https://www.facebook.com/coderdojobla" class="fab fa-facebook-square" title="Notre page Faceboo"></a>
+            <a href="https://www.facebook.com/coderdojobla" class="fab fa-facebook-square" title="Notre page Facebook"></a>
         </div>
     </footer>
 </div>
