@@ -128,7 +128,13 @@ main strong {
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    box-shadow: 1px 2px 6px 2px #bfbfbf;
+    /*box-shadow: 1px 2px 6px 2px #bfbfbf;*/
+    box-shadow: 0 1.7px 2.2px rgba(0, 0, 0, 0.039),
+    0 4px 5.3px rgba(0, 0, 0, 0.057),
+    0 7.5px 10px rgba(0, 0, 0, 0.07),
+    0 13.4px 17.9px rgba(0, 0, 0, 0.083),
+    0 25.1px 33.4px rgba(0, 0, 0, 0.101),
+    0 60px 80px rgba(0, 0, 0, 0.14);
 }
 
 .coach figcaption {
