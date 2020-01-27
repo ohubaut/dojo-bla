@@ -22,7 +22,7 @@
             <input type="checkbox" id="hamburger">
             <label for="hamburger" class="far fa-bars hidden"></label>
             <ul>
-                <li id="accueil" {{ if or .Page.IsHome .Params.menu "accueil" }}class="current" {{ end }}><a href="/">Accueil</a></li>
+                <li id="accueil" {{ if or .Page.IsHome (eq .Params.menu "accueil") }}class="current" {{ end }}><a href="/">Accueil</a></li>
                 <li id="session" {{ if eq .Params.menu "sessions" }}class="current"{{ end }}><a href="/sessions">Sessions</a></li>
                 <li id="coaches" {{ if eq .Params.menu "coaches" }}class="current"{{ end }}><a href="/coaches">Coaches</a></li>
                 <li id="ceintures" {{ if eq .Params.menu "ceintures" }}class="current"{{ end }}><a href="/ceintures">Ceintures</a></li>
