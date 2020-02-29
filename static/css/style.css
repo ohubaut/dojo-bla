@@ -1,3 +1,13 @@
+:root {
+    --effect-duration: 0.3s;
+    --box-shadow: 0 1.7px 2.2px rgba(0, 0, 0, 0.039),
+    0 4px 5.3px rgba(0, 0, 0, 0.057),
+    0 7.5px 10px rgba(0, 0, 0, 0.07),
+    0 13.4px 17.9px rgba(0, 0, 0, 0.083),
+    0 25.1px 33.4px rgba(0, 0, 0, 0.101),
+    0 60px 80px rgba(0, 0, 0, 0.14);
+}
+
 body {
     font-family: 'Roboto', sans-serif;
 }
@@ -13,9 +23,8 @@ h2 {
 /* Header */
 
 header {
-    display: grid;
-    grid-template-columns: auto 3.5rem;
-    grid-column-gap: .5rem;
+    display: flex;
+    flex-direction: column;
 }
 
 header img {
@@ -27,39 +36,17 @@ header img {
     display: none;
 }
 
+nav {
+    position: relative;
+}
+
 nav label {
+    display: inline-block;
     font-style: normal;
     font-size: 2rem;
     padding: .5rem;
     width: 100%;
     text-align: center;
-}
-
-nav ul {
-    margin: 0;
-    padding: 0;
-    display: none;
-}
-
-nav li {
-    display: block;
-    list-style: none;
-    padding: .7rem 0;
-    font-size: 1.6rem;
-    text-align: center;
-    border-bottom: 1px solid hsl(0, 0%, 18%);
-}
-
-nav input:checked ~ ul {
-    display: block;
-    width: calc(100% - 4rem);
-    right: -.5rem;
-    background: rgba(247, 247, 247, 0.9);
-    position: absolute;
-}
-
-nav input:checked ~ label {
-    background: rgba(247, 247, 247, 0.9);
 }
 
 /* Footer */
@@ -68,13 +55,15 @@ footer {
     margin-top: 1.5rem;
     padding: 1.5rem;
     border-top: 1px solid #006ad5;
-    display: grid;
+    display: flex;
+    justify-content: space-between;
 }
 
 .social-media {
-    padding-top: 5px;
-    font-size: 2rem;
+    font-size: 1.5rem;
+    padding-top: 0;
 }
+
 
 a {
     text-decoration: none;
@@ -110,12 +99,7 @@ main strong {
     margin: 2rem auto 0;
     border: 1px solid #006be2;
     padding: .5rem 0;
-    box-shadow: 0 1.7px 2.2px rgba(0, 0, 0, 0.039),
-    0 4px 5.3px rgba(0, 0, 0, 0.057),
-    0 7.5px 10px rgba(0, 0, 0, 0.07),
-    0 13.4px 17.9px rgba(0, 0, 0, 0.083),
-    0 25.1px 33.4px rgba(0, 0, 0, 0.101),
-    0 60px 80px rgba(0, 0, 0, 0.14);
+    box-shadow: var(--box-shadow);
 }
 
 meter {
@@ -155,13 +139,7 @@ meter {
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    /*box-shadow: 1px 2px 6px 2px #bfbfbf;*/
-    box-shadow: 0 1.7px 2.2px rgba(0, 0, 0, 0.039),
-    0 4px 5.3px rgba(0, 0, 0, 0.057),
-    0 7.5px 10px rgba(0, 0, 0, 0.07),
-    0 13.4px 17.9px rgba(0, 0, 0, 0.083),
-    0 25.1px 33.4px rgba(0, 0, 0, 0.101),
-    0 60px 80px rgba(0, 0, 0, 0.14);
+    box-shadow: var(--box-shadow);
 }
 
 .coach figcaption {
@@ -194,66 +172,165 @@ dt {
     color: rgb(245, 239, 239);
 }
 
-@media (min-width: 768px) {
-    #container {
-        max-width: 1000px;
-        margin: 0 auto;
-    }
+#container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
 
-    header {
-        grid-template-columns: 1fr;
-    }
+.main-menu {
+    display: flex;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+    font-variant: all-small-caps;
+    padding: 0;
+}
 
-    nav label, .hidden {
+.main-menu a {
+    color: #000;
+}
+
+.main-menu li {
+    list-style-type: none;
+}
+
+.main-menu a {
+    display: inline-block;
+    padding: .4rem 0;
+    width: 100%;
+}
+
+.main-menu a:hover {
+    color: #FFF;
+}
+
+@media (hover: hover) {
+
+    .fa-bars {
         display: none;
     }
 
-    nav ul {
-        display: block;
-        background-color: inherit;
+    #a-propos {
+        --color: #FAA31A;
     }
 
-    nav li {
-        display: inline-block;
-        font-size: 1.2rem;
-        font-weight: 500;
+    #session {
+        --color: #49B749;
+    }
+
+    #guides {
+        --color: #0093D5;
+    }
+
+    #divers {
+        --color: #ea4737;
+    }
+
+    .main-menu ul {
+        position: absolute;
+        padding: 0;
+        margin: 0;
+        transform: scaleY(0);
+        transform-origin: top;
+        transition-duration: var(--effect-duration);
+        background-color: #FFF;
+        width: 100%;
+    }
+
+    .main-menu > li {
         cursor: pointer;
-        border-top: 0;
+        position: relative;
+    }
+
+    .main-menu > li:hover ul {
+        transform: translateY(1px) scaleY(1);
+    }
+
+    .main-menu > li:hover span, .main-menu .current span {
+        border-bottom-color: var(--color);
+    }
+
+    .main-menu span {
+        display: inline-block;
+        padding: .7rem 1.3rem;
         border-bottom: 3px solid #FFF;
-        transition-duration: 0.3s;
+        transition-duration: var(--effect-duration);
     }
 
-    nav li a {
+    .main-menu .fa-angle-down {
+        padding-left: .3rem;
+        font-size: 1rem;
+    }
+
+    .main-menu a:hover {
+        background-color: var(--color);
+    }
+
+}
+
+@media (hover: none), (hover: on-demand) {
+
+    header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    header img {
+        margin: unset;
+        max-width: calc(100vw - 5rem);
+    }
+
+    header nav {
+        justify-self: flex-end;
+    }
+
+    .fa-angle-down {
+        display: none;
+    }
+
+    .main-menu {
+        position: absolute;
+        right: 0;
+        width: 10rem;
+        flex-direction: column;
+        margin: 0;
+        text-align: left;
+        background: rgba(247, 247, 247, 0.9);
+        transform: scaleY(0);
+        transform-origin: top;
+        transition-duration: var(--effect-duration);
+    }
+
+    .main-menu span {
         display: block;
-        padding: 0 1.5rem;
-        line-height: 3rem;
-        text-align: center;
-        font-variant: all-small-caps;
-        color: #000;
+        text-align: left;
+        padding-left: 1rem;
+        background-color: rgba(44, 44, 44, 0.9);
+        color: #fff;
     }
 
-    #accueil:hover, #accueil.current {
-        border-bottom-color: #FAA31A;
+    .main-menu ul {
+        margin: 0;
+        padding-left: 1rem;
+        padding-right: .5rem;
     }
 
-    #session:hover, #session.current {
-        border-bottom-color: #49B749;
+    .main-menu ul a {
+        padding-left: 1rem;
     }
 
-    #coaches:hover, #coaches.current {
-        border-bottom-color: #0093D5;
-    }
-
-    #ceintures:hover, #ceintures.current {
-        border-bottom-color: #ea4737;
+    nav input:checked ~ .main-menu {
+        transform: scaleY(1);
     }
 
     footer {
-        grid-template-columns: auto 3rem;
+        flex-direction: column;
     }
 
     .social-media {
-        font-size: 1.5rem;
-        padding-top: 0;
+        padding-top: 5px;
+        font-size: 2rem;
     }
+
 }

@@ -20,13 +20,38 @@
         <img src="/images/logo-cdj-be.png" alt="CoderDojo de Braine-l'Alleud">
         <nav>
             <input type="checkbox" id="hamburger">
-            <label for="hamburger" class="far fa-bars hidden"></label>
-            <ul>
-                <li id="accueil" {{ if or .Page.IsHome (eq .Params.menu "accueil") }}class="current" {{ end }}><a href="/">Accueil</a></li>
-                <li id="session" {{ if eq .Params.menu "sessions" }}class="current"{{ end }}><a href="/sessions">Sessions</a></li>
-                <li id="coaches" {{ if eq .Params.menu "coaches" }}class="current"{{ end }}><a href="/coaches">Coaches</a></li>
-                <li id="ceintures" {{ if eq .Params.menu "ceintures" }}class="current"{{ end }}><a href="/ceintures">Ceintures</a></li>
-            </ul>
+            <label for="hamburger" class="far fa-bars"></label>
+            <menu class="main-menu">
+                <li id="a-propos" {{ if or .Page.IsHome (eq .Params.menu "accueil") }}class="current" {{ end }}>
+                    <span>A Propos <i class="far fa-angle-down"></i></span>
+                    <ul>
+                        <li><a href="/">Accueil</a></li>
+                        <li><a href="/coaches">Coaches</a></li>
+                    </ul>
+                </li>
+                <li id="session" {{ if eq .Params.menu "sessions" }}class="current"{{ end }}>
+                    <span>Sessions <i class="far fa-angle-down"></i></span>
+                    <ul>
+                        <li><a href="/sessions">A venir</a></li>
+                        <li><a href="/sessions/passees">Passées</a></li>
+                    </ul>
+                </li>
+                <li id="guides" {{ if eq .Params.menu "guides" }}class="current"{{ end }}>
+                    <span>Guides <i class="far fa-angle-down"></i></span>
+                    <ul>
+                        <li><a href="/guides/debutants">Débutants</a></li>
+                        <li><a href="/guides/scratch">Scratch</a></li>
+                        <li><a href="/guides/python">Python</a></li>
+                    </ul>
+                </li>
+                <li id="divers" {{ if eq .Params.menu "divers" }}class="current"{{ end }}>
+                    <span>Divers <i class="far fa-angle-down"></i></span>
+                    <ul>
+                        <li><a href="/ceintures">Ceintures</a></li>
+                        <li><a href="/cagnotte">Cagnotte</a></li>
+                    </ul>
+                </li>
+            </menu>
         </nav>
     </header>
     <main>
@@ -35,7 +60,7 @@
         <div id="gauge">
             <p><a href="/cagnotte">Aidez-nous à atteindre notre objectif!</a><br>
                 <meter value="50" max="100" title="Cagnotte actuelle: 50€ sur 100€">Cagnotte actuelle: 45€</meter></p>
-            <img src="/images/robot/mbot_mini.png" srcset="/images/robot/mbot_mini_2x.png 2x">
+            <img src="/images/robot/mbot_mini.png" alt="Robot mBot" srcset="/images/robot/mbot_mini_2x.png 2x">
         </div>
     </main>
     <footer>
