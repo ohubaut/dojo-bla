@@ -123,6 +123,11 @@ meter {
     text-align: center;
 }
 
+.google-dirve {
+    width: 95%;
+    height: 500px;
+}
+
 .cagnotte {
     display: grid;
     grid-template-columns: auto auto;

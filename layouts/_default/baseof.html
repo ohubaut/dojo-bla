@@ -22,7 +22,7 @@
             <input type="checkbox" id="hamburger">
             <label for="hamburger" class="far fa-bars"></label>
             <menu class="main-menu">
-                <li id="a-propos" {{ if or .Page.IsHome (eq .Params.menu "accueil") }}class="current" {{ end }}>
+                <li id="a-propos" {{ if or .Page.IsHome (eq .Params.menu "a propos") }}class="current" {{ end }}>
                     <span>A Propos <i class="far fa-angle-down"></i></span>
                     <ul>
                         <li><a href="/">Accueil</a></li>
