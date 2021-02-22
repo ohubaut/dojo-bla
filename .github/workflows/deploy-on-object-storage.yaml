@@ -17,12 +17,11 @@ jobs:
         run: hugo
 
       - name: Deploy
-        uses: jakejarvis/s3-sync-action@v0.5.1
+        uses: ./.github/actions/deploy-on-scaleway
         with:
-          args: --acl public-read --delete
-        env:
-          SOURCE_DIR: ./public/
-          AWS_S3_ENDPOINT: 'https://coderdojo-bla.s3.fr-par.scw.cloud'
-          AWS_S3_BUCKET: ${{ secrets.S3_BUCKET }}
-          AWS_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_ACCESS_KEY }}
+          source: './public/'
+          target: 'site'
+          az: 'fr-par'
+          bucket: ${{ secrets.S3_BUCKET }}
+          access-key-id: ${{ secrets.S3_ACCESS_KEY_ID }}
+          secret_access_key: ${{ secrets.S3_SECRET_ACCESS_KEY }}

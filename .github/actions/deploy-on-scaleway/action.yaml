@@ -1,0 +1,36 @@
+name: 'Deploy on Scaleway'
+inputs:
+  az:
+    desciption: 'The Scaleway AZ where your bucket is'
+    require: true
+  bucket:
+    description: 'The name of the bucket to use'
+    required: true
+  access-key-id:
+    description: 'Your access key'
+    required: true
+  secret-access-key:
+    description: 'Your secret key'
+    required: true
+  source:
+    description: 'The file or folder to upload'
+    required: true
+  target:
+    description: 'The key where to upload in the bucket'
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - run: pip install s3cmd
+      shell: bash
+    - run: |
+        echo "[default]" > .s3cnf
+        echo "access_key = ${{ access-key-id }}" >> .s3cfg
+        echo "secret_key = ${{ secret-access-key }}" >> .s3cfg
+        echo "host_base = s3.${{ az }}.scw.cloud" >> .s3cfg
+        echo "host_bucket = %(bucket)s.s3.${{ az }}.scw.cloud" >> .s3cfg
+        echo "bucket_location = ${{ az }}" >> .s3cfg
+        echo "use_https = True" >> .s3cfg
+      shell: bash
+    - run: s3cmd sync ${{ source }} s3://${{ bucket }}/${{ target }} -c .s3cfg
+      shell: bash
