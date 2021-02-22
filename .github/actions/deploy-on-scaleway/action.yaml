@@ -32,5 +32,5 @@ runs:
         echo "bucket_location = ${{ inputs.az }}" >> .s3cfg
         echo "use_https = True" >> .s3cfg
       shell: bash
-    - run: s3cmd sync ${{ inputs.source }} s3://${{ inputs.bucket }}/${{ inputs.target }} -c .s3cfg
+    - run: s3cmd sync ${{ inputs.source }} s3://${{ inputs.bucket }}/${{ inputs.target }}/ -c .s3cfg
       shell: bash
