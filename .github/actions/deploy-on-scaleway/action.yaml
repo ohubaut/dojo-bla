@@ -25,12 +25,12 @@ runs:
       shell: bash
     - run: |
         echo "[default]" > .s3cnf
-        echo "access_key = ${{ access-key-id }}" >> .s3cfg
-        echo "secret_key = ${{ secret-access-key }}" >> .s3cfg
-        echo "host_base = s3.${{ az }}.scw.cloud" >> .s3cfg
-        echo "host_bucket = %(bucket)s.s3.${{ az }}.scw.cloud" >> .s3cfg
-        echo "bucket_location = ${{ az }}" >> .s3cfg
+        echo "access_key = ${{ inputs.access-key-id }}" >> .s3cfg
+        echo "secret_key = ${{ inputs.secret-access-key }}" >> .s3cfg
+        echo "host_base = s3.${{ inputs.az }}.scw.cloud" >> .s3cfg
+        echo "host_bucket = %(bucket)s.s3.${{ inputs.az }}.scw.cloud" >> .s3cfg
+        echo "bucket_location = ${{ inputs.az }}" >> .s3cfg
         echo "use_https = True" >> .s3cfg
       shell: bash
-    - run: s3cmd sync ${{ source }} s3://${{ bucket }}/${{ target }} -c .s3cfg
+    - run: s3cmd sync ${{ inputs.source }} s3://${{ inputs.bucket }}/${{ inputs.target }} -c .s3cfg
       shell: bash
