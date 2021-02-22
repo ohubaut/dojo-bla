@@ -21,7 +21,7 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - run: pip install s3cmd
+    - run: apt-get install s3cmd
       shell: bash
     - run: |
         echo "[default]" > .s3cnf
